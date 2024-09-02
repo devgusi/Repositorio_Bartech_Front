@@ -1,0 +1,184 @@
+// Variables para colores y tamaños
+$primary-color: #ca0a0a;
+$secondary-color: #ffffff00;
+$background-color: #ffffff;
+$text-color: #2d3436;
+$border-color: #443bbd;
+$hover-color: #840707;
+$text-muted: #b2bec3;
+
+
+// Estilos generales
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.flex {
+  display: flex;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.md\\:flex-row {
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.bg-gradient-to-br {
+  background: linear-gradient(to bottom right, $secondary-color, $primary-color);
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.max-w-full {
+  max-width: 100%;
+}
+
+.max-w-md {
+  max-width: 28rem;
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.md\\:mb-0 {
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+  }
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-muted-foreground {
+  color: $text-muted;
+}
+
+.space-y-4 > * + * {
+  margin-top: 1rem;
+}
+
+// Estilos para etiquetas y entradas
+label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $text-color;
+}
+
+input {
+  height: 2.5rem;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  width: 100%;
+  border-radius: 9999px;
+  border: 2px solid $border-color;
+  background-color: $background-color;
+  padding: 0.5rem 1rem;
+  color: $text-color;
+  &:focus {
+    border-color: $primary-color;
+    outline: none;
+  }
+  &::placeholder {
+    color: $text-muted;
+  }
+}
+
+// Estilos para el botón
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  width: 100%;
+  border-radius: 9999px;
+  background-color: $primary-color;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  &:hover {
+    background-color: $hover-color;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba($primary-color, 0.5);
+  }
+}
+
+// Estilos para enlaces
+a {
+  color: $primary-color;
+  font-weight: 500;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Estilos adicionales
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+// Estilos para la responsividad
+@media (max-width: 640px) {
+  .max-w-md {
+    padding: 1rem;
+  }
+}
+

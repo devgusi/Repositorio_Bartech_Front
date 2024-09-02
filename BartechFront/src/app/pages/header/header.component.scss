@@ -1,25 +1,45 @@
 .toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    background-color: #ca0a0a;
-    color: white;
-    font-weight: 600;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  background-color: #000000;
+  color: white;
+  font-weight: 600;
+  padding: 0 16px; /* Añadido para espaciado interno */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Opcional: agrega una sombra para dar un efecto de elevación */
+}
+
+.toolbar img {
+  height: 100%; /* Ajusta la altura para que se ajuste a la altura de la barra */
+}
+
+.toolbar #twitter-logo {
+  height: 100%; /* Ajusta la altura para que se ajuste a la altura de la barra */
+  margin-left: auto; /* Empuja el icono hacia el borde derecho */
+  margin-right: 16px;
+}
+
+.toolbar #twitter-logo:hover {
+  opacity: 0.8;
+}
+
+.bartech-logo {
+  height: 100%; /* Ajusta la altura para que se ajuste a la altura de la barra */
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 10px;
   }
 
-  .toolbar img {
-    margin: 0 16px;
+  .toolbar img, .toolbar #twitter-logo {
+    margin: 8px 0; /* Ajusta el margen en pantallas pequeñas */
   }
-
-  .toolbar #twitter-logo {
-    height: 40px;
-    margin: 0 16px;
-  }
-
-  .toolbar #twitter-logo:hover {
-    opacity: 0.8;
-  }
+}
