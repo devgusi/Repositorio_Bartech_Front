@@ -77,3 +77,15 @@ body, html {
 .icon:hover {
     transform: scale(1.2);
 }
+
+
+.random-iconB {
+    font-size: 24px; /* Ajusta el tamaño del icono según sea necesario */
+    color: #840707; /* Rojo */
+    display: inline-block;
+    padding: 10px;
+    border-radius: 50%; /* Opcional: hace que el fondo sea circular */
+    background-color: rgba(245, 30, 51, 0.1); /* Opcional: color de fondo rojo claro */
+    text-align: center; /* Asegura que el texto esté centrado */
+  }
+  
