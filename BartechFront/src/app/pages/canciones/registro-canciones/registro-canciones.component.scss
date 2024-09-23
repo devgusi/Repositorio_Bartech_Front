@@ -1,0 +1,74 @@
+// Variables de colores
+$border-color: #ccc;
+$focus-color: #333;
+$button-color: #d9534f;
+$button-hover-color: #c9302c;
+$background-color: #fff;
+$box-shadow: rgba(0, 0, 0, 0.1);
+
+.title-center{
+  text-align: center;
+}
+
+.registration-cancion-form {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid $border-color;
+  border-radius: 10px;
+  box-shadow: 0 0 10px $box-shadow;
+  background-color: $background-color;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+
+    input {
+      width: 100%;  // Optimizado para evitar el uso de calc
+      padding: 10px;
+      border: 1px solid $border-color;
+      border-radius: 5px;
+      outline: none;
+
+      &:focus {
+        border-color: $focus-color;
+      }
+    }
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: $button-color;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease; // Transición suave al hover
+
+    &:hover {
+      background-color: $button-hover-color;
+      cursor: pointer;
+    }
+  }
+}
+
+// Media query para pantallas más pequeñas
+@media (max-width: 600px) {
+  .registration-form {
+    padding: 10px;
+
+    .form-group input {
+      padding: 8px;  // Reducir padding en pantallas pequeñas
+    }
+
+    button {
+      padding: 8px;
+      font-size: 14px;
+    }
+  }
+}

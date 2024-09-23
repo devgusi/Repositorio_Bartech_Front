@@ -9,18 +9,23 @@
   background-color: #000000;
   color: white;
   font-weight: 600;
-  padding: 0 16px; /* Añadido para espaciado interno */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Opcional: agrega una sombra para dar un efecto de elevación */
+  padding: 0 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .toolbar img {
-  height: 100%; /* Ajusta la altura para que se ajuste a la altura de la barra */
+  height: 100%;
+}
+
+.toolbar-content {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
 }
 
 .toolbar #twitter-logo {
-  height: 100%; /* Ajusta la altura para que se ajuste a la altura de la barra */
-  margin-left: auto; /* Empuja el icono hacia el borde derecho */
-  margin-right: 16px;
+  height: 100%;
+  margin-left: 16px;
 }
 
 .toolbar #twitter-logo:hover {
@@ -28,7 +33,7 @@
 }
 
 .bartech-logo {
-  height: 100%; /* Ajusta la altura para que se ajuste a la altura de la barra */
+  height: 100%;
 }
 
 @media (max-width: 768px) {
@@ -40,6 +45,16 @@
   }
 
   .toolbar img, .toolbar #twitter-logo {
-    margin: 8px 0; /* Ajusta el margen en pantallas pequeñas */
+    margin: 8px 0;
+  }
+
+  .toolbar-content {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .toolbar-content span, .toolbar-content a {
+    margin: 8px 0;
   }
 }

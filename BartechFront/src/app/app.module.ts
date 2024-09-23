@@ -8,6 +8,7 @@ import { FooterComponent } from './pages/footer/footer.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/usuarios/registro/registro.component';
 import { ModificarComponent } from './pages/usuarios/modificar/modificar.component';
+import { RegistroCancionesComponent } from './pages/canciones/registro-canciones/registro-canciones.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ModificarComponent } from './pages/usuarios/modificar/modificar.compone
     FooterComponent,
     LoginComponent,
     RegistroComponent,
-    ModificarComponent
+    ModificarComponent,
+    RegistroCancionesComponent
   ],
   imports: [
     BrowserModule,
