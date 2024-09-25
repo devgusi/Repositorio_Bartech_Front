@@ -12,6 +12,7 @@ import { RegistroCancionesComponent } from './pages/canciones/registro-canciones
 import { ListarCancionesComponent } from './pages/canciones/listar-canciones/listar-canciones.component';
 import { CommonModule } from '@angular/common';
 import { RegistrarBarComponent } from './pages/bar/registrar-bar/registrar-bar.component';
+import { ListarBarComponent } from './pages/bar/listar-bar/listar-bar.component';
 
 
 
@@ -26,7 +27,8 @@ import { RegistrarBarComponent } from './pages/bar/registrar-bar/registrar-bar.c
     ModificarComponent,
     RegistroCancionesComponent,
     ListarCancionesComponent,
-    RegistrarBarComponent
+    RegistrarBarComponent,
+    ListarBarComponent
   ],
   imports: [
     BrowserModule,

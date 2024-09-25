@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+header {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.canciones {
+    padding: 20px;
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    table {
+        margin-bottom: 20px;
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.youtube {
+    background-color: #dc3545;
+    color: white;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.reportes {
+    background-color: #007bff;
+    color: white;
+}
+
+.limpiar {
+    background-color: #6c757d;
+    color: white;
+}
+
+.qr-code {
+    text-align: right;
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .qr-code {
+        text-align: center;
+    }
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+input {
+    margin: 20px 0;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
