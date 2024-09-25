@@ -9,6 +9,10 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/usuarios/registro/registro.component';
 import { ModificarComponent } from './pages/usuarios/modificar/modificar.component';
 import { RegistroCancionesComponent } from './pages/canciones/registro-canciones/registro-canciones.component';
+import { ListarCancionesComponent } from './pages/canciones/listar-canciones/listar-canciones.component';
+import { CommonModule } from '@angular/common';
+
+
 
 
 @NgModule({
@@ -19,11 +23,13 @@ import { RegistroCancionesComponent } from './pages/canciones/registro-canciones
     LoginComponent,
     RegistroComponent,
     ModificarComponent,
-    RegistroCancionesComponent
+    RegistroCancionesComponent,
+    ListarCancionesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

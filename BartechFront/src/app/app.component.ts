@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'BartechFront';
+  qrData: string = 'https://www.ejemplo.com'; // Cambia esto por la URL o texto que quieras codificar
 }
