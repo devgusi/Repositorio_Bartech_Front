@@ -16,18 +16,21 @@ import { ListarBarComponent } from './pages/bar/listar-bar/listar-bar.component'
 
 
 import { RouterModule, Routes } from '@angular/router';
+import { ModificarBarComponent } from './pages/bar/modificar-bar/modificar-bar.component';
 
 const appRoutes: Routes = [
-  //usuarios
+  //login
   { path: '', component: LoginComponent},
-  { path: 'registarUsuario', component: RegistroComponent },
+  //usuarios
+  { path: 'registrarUsuario', component: RegistroComponent },
   { path: 'editarUsuario', component: ModificarComponent },
   //bares
   { path: 'listarBares', component: ListarBarComponent },
-  { path: 'registarBar', component: RegistrarBarComponent},
+  { path: 'registrarBar', component: RegistrarBarComponent},
+  {path: 'editarBar',component:ModificarBarComponent},
   //canciones
   { path: 'listarCanciones', component: ListarCancionesComponent },
-  { path: 'registarCancion', component: RegistroCancionesComponent},
+  { path: 'registrarCancion', component: RegistroCancionesComponent},
 ];
 
 @NgModule({
@@ -41,7 +44,8 @@ const appRoutes: Routes = [
     RegistroCancionesComponent,
     ListarCancionesComponent,
     RegistrarBarComponent,
-    ListarBarComponent
+    ListarBarComponent,
+    ModificarBarComponent
   ],
   
   imports: [
