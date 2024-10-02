@@ -15,7 +15,20 @@ import { RegistrarBarComponent } from './pages/bar/registrar-bar/registrar-bar.c
 import { ListarBarComponent } from './pages/bar/listar-bar/listar-bar.component';
 
 
+import { RouterModule, Routes } from '@angular/router';
 
+const appRoutes: Routes = [
+  //usuarios
+  { path: '', component: LoginComponent},
+  { path: 'registarUsuario', component: RegistroComponent },
+  { path: 'editarUsuario', component: ModificarComponent },
+  //bares
+  { path: 'listarBares', component: ListarBarComponent },
+  { path: 'registarBar', component: RegistrarBarComponent},
+  //canciones
+  { path: 'listarCanciones', component: ListarCancionesComponent },
+  { path: 'registarCancion', component: RegistroCancionesComponent},
+];
 
 @NgModule({
   declarations: [
@@ -30,12 +43,15 @@ import { ListarBarComponent } from './pages/bar/listar-bar/listar-bar.component'
     RegistrarBarComponent,
     ListarBarComponent
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [RouterModule]
 })
 export class AppModule { }
