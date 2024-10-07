@@ -5,74 +5,83 @@
   </header>
 
   <body>
-  <!--bg-gradient-to-br from-[#ffffff] to-[#ca0a0a] p-4 //propiedad para que el fondo quede en degradado-->
-  <div class="flex min-h-screen flex-col md:flex-row items-center justify-center ">
-    <div class="container text-center " >
-      <div class="row align-items-center">
-        
-        <div class="col-6 ">
-          <!-- Contenedor izquierdo con el GIF centrado -->
-          <div class="w-full md:w-1/2 flex items-center justify-center mb-4 md:mb-0 heith:100px">
-            <img src="../../../assets/resources/discoteca.jpg" alt="Gif fiesta 1" class="max-w-full rounded-2xl shadow-lg">
-          </div>
-        </div>
-        
-        <div class="col-6 ">
-          <!-- Contenedor derecho con el formulario de inicio de sesión -->
-          <div class="w-full md:w-1/2 max-w-md rounded-2xl bg-white p-6 shadow-lg">
-            <div class="mb-6 text-center">
-              <h1 class="text-3xl font-bold text-[#2d3436]">¡Únete a la fiesta!</h1>
-              <p class="text-muted-foreground">Inicia sesión para unirte a la diversión.</p>
+    <div class="flex min-h-screen flex-col md:flex-row items-center justify-center ">
+      <div class="container text-center">
+        <div class="row align-items-center">
+          
+          <div class="col-6">
+            <!-- Contenedor izquierdo con el GIF centrado -->
+            <div class="w-full md:w-1/2 flex items-center justify-center mb-4 md:mb-0">
+              <img src="../../../assets/resources/discoteca.jpg" alt="Gif fiesta" class="max-w-full rounded-2xl shadow-lg">
             </div>
-            <form class="space-y-4">
-              <div>
-                <label
-                  class="peer-disabled:cursor-not-allowed peer-disabled:opacity-70 block text-sm font-medium text-[#2d3436]"
-                  for="email"
-                >
-                  Correo electrónico
-                </label>
-                <input
-                  class="h-10 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mt-1 block w-full rounded-full border-2 border-[#a29bfe] bg-[#f1f2f6] px-4 py-2 text-[#2d3436] focus:border-[#6c5ce7] focus:outline-none"
-                  type="email"
-                  id="email"
-                  placeholder="ejemplo@email.com"
-                />
+          </div>
+          
+          <div class="col-6">
+            <!-- Contenedor derecho con el formulario de inicio de sesión -->
+            <div class="w-full md:w-1/2 max-w-md rounded-2xl bg-white p-6 shadow-lg">
+              <div class="mb-6 text-center">
+                <h1 class="text-3xl font-bold text-[#2d3436]">¡Únete a la fiesta!</h1>
+                <p class="text-muted-foreground">Inicia sesión para unirte a la diversión.</p>
               </div>
-              <div>
-                <div >
-                  <label
-                    class="peer-disabled:cursor-not-allowed peer-disabled:opacity-70 block text-sm font-medium text-[#2d3436]"
-                    for="password"
+              
+              <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+                <div class="form-group">
+                  <label for="userName" class="block text-sm font-medium text-[#2d3436]">Usuario</label>
+                  <input 
+                    class="h-10 text-sm block w-full rounded-full border-2 border-[#a29bfe] bg-[#f1f2f6] px-4 py-2 text-[#2d3436] focus:border-[#6c5ce7]"
+                    type="text"
+                    id="userName"
+                    name="userName"
+                    placeholder="Usuario"
+                    required
+                    [(ngModel)]="userName"
+                    #userName="ngModel"
                   >
-                  Contraseña&nbsp;
-                  </label>
+                  <!-- Error message for userName -->
+                  <div *ngIf="userName.invalid && userName.touched" class="text-red-600 text-sm">
+                    El nombre de usuario es obligatorio.
+                  </div>
                 </div>
-                <input
-                  class="h-10 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 mt-1 block w-full rounded-full border-2 border-[#a29bfe] bg-[#f1f2f6] px-4 py-2 text-[#2d3436] focus:border-[#6c5ce7] focus:outline-none"
-                  type="password"
-                  id="password"
-                  placeholder="••••••••"
-                />
-              </div>
-              <button
-                class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 w-full rounded-full bg-[#6c5ce7] px-4 py-2 text-white hover:bg-[#a29bfe] focus:outline-none"
-                type="submit"
-              >
-                Iniciar sesión
-              </button>
-              <div class="text-center text-sm text-muted-foreground">
-                ¿No tienes una cuenta?
-                <a class="font-medium text-[#6c5ce7] hover:underline" routerLink="/registrarUsuario">
-                  Regístrate
-                </a>
-              </div>
-            </form>
+                
+                <div class="form-group">
+                  <label for="password" class="block text-sm font-medium text-[#2d3436]">Contraseña</label>
+                  <input
+                    class="h-10 text-sm block w-full rounded-full border-2 border-[#a29bfe] bg-[#f1f2f6] px-4 py-2 text-[#2d3436] focus:border-[#6c5ce7]"
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="••••••••"
+                    required
+                    [(ngModel)]="password"
+                    #password="ngModel"
+                  >
+                  <!-- Error message for password -->
+                  <div *ngIf="password.invalid && password.touched" class="text-red-600 text-sm">
+                    La contraseña es obligatoria.
+                  </div>
+                </div>
+                
+                <button 
+                  class="inline-flex items-center justify-center h-10 w-full rounded-full bg-[#6c5ce7] px-4 py-2 text-white hover:bg-[#a29bfe]"
+                  type="submit"
+                  [disabled]="loginForm.invalid"
+                >
+                  Iniciar sesión
+                </button>
+    
+                <div class="text-center text-sm text-muted-foreground mt-4">
+                  ¿No tienes una cuenta?
+                  <a class="font-medium text-[#6c5ce7] hover:underline" routerLink="/registrarUsuario">
+                    Regístrate
+                  </a>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+    
   </body>
 </html>
 <footer>

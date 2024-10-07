@@ -14,13 +14,18 @@ import { RegistrarBarComponent } from './pages/bar/registrar-bar/registrar-bar.c
 import { ListarBarComponent } from './pages/bar/listar-bar/listar-bar.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ModificarBarComponent } from './pages/bar/modificar-bar/modificar-bar.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { AuthGuard } from './auth/auth.guard'; // Importar el guardia
+
 
 // Importar NgxQrcodeModule
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 const appRoutes: Routes = [
   //login
-  { path: '', component: LoginComponent },
+  { path: 'main', component: LoginComponent },
   //usuarios
   { path: 'registrarUsuario', component: RegistroComponent },
   { path: 'editarUsuario', component: ModificarComponent },
@@ -53,8 +58,11 @@ const appRoutes: Routes = [
     CommonModule,
     RouterModule.forRoot(appRoutes),
     NgxQRCodeModule, // Agregar el módulo de QR
+    ReactiveFormsModule, // Para formularios reactivos
+    FormsModule, // <-- asegúrate de tener este import
+    HttpClientModule // Para hacer las solicitudes HTTP
   ],
-  providers: [],
+  providers: [AuthGuard], // Añadir el guardia de autenticación aquí
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] // Agregar el esquema
 })

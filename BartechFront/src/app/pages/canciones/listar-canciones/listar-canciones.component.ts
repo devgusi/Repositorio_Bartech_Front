@@ -1,29 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import * as QRCode from 'qrcode'; // Importar la librería QRCode
+import { Component } from '@angular/core';
+import * as QRCode from 'qrcode';
 
 @Component({
   selector: 'app-listar-canciones',
   templateUrl: './listar-canciones.component.html',
   styleUrls: ['./listar-canciones.component.scss']
 })
-export class ListarCancionesComponent implements OnInit {
-  // qrData: string = 'http://localhost:4200/registrarCancion';
-  qrData: string = 'https://www.youtube.com/watch?v=wunUvgf-IG4';
-  
+export class ListarCancionesComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-    this.generateQRCode();
-  }
-
-  generateQRCode(): void {
+  // Método que se ejecuta al hacer clic en el botón
+  generarQRCode() {
     const canvas = document.getElementById('qrcode') as HTMLCanvasElement;
-    QRCode.toCanvas(canvas, this.qrData, function (error: any) {
+    
+    // Cambia la URL o los datos que quieres codificar
+    const qrData = 'http://localhost:4200/registrarCancion';
+    
+    // Genera el QR en el canvas
+    QRCode.toCanvas(canvas, qrData, function (error) {
       if (error) {
         console.error(error);
       } else {
-        console.log('QR code generated successfully!');
+        console.log('Código QR generado correctamente');
       }
     });
   }
