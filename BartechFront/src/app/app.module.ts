@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'; // Agregar CUSTOM_ELEMENTS_SCHEMA
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './pages/header/header.component';
@@ -13,24 +12,25 @@ import { ListarCancionesComponent } from './pages/canciones/listar-canciones/lis
 import { CommonModule } from '@angular/common';
 import { RegistrarBarComponent } from './pages/bar/registrar-bar/registrar-bar.component';
 import { ListarBarComponent } from './pages/bar/listar-bar/listar-bar.component';
-
-
 import { RouterModule, Routes } from '@angular/router';
 import { ModificarBarComponent } from './pages/bar/modificar-bar/modificar-bar.component';
 
+// Importar NgxQrcodeModule
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+
 const appRoutes: Routes = [
   //login
-  { path: '', component: LoginComponent},
+  { path: '', component: LoginComponent },
   //usuarios
   { path: 'registrarUsuario', component: RegistroComponent },
   { path: 'editarUsuario', component: ModificarComponent },
   //bares
   { path: 'listarBares', component: ListarBarComponent },
-  { path: 'registrarBar', component: RegistrarBarComponent},
-  {path: 'editarBar',component:ModificarBarComponent},
+  { path: 'registrarBar', component: RegistrarBarComponent },
+  { path: 'editarBar', component: ModificarBarComponent },
   //canciones
   { path: 'listarCanciones', component: ListarCancionesComponent },
-  { path: 'registrarCancion', component: RegistroCancionesComponent},
+  { path: 'registrarCancion', component: RegistroCancionesComponent },
 ];
 
 @NgModule({
@@ -45,17 +45,17 @@ const appRoutes: Routes = [
     ListarCancionesComponent,
     RegistrarBarComponent,
     ListarBarComponent,
-    ModificarBarComponent
+    ModificarBarComponent,
   ],
-  
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NgxQRCodeModule, // Agregar el módulo de QR
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [RouterModule]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] // Agregar el esquema
 })
-export class AppModule { }
+export class AppModule {}

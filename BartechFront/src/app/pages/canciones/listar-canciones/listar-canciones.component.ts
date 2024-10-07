@@ -8,7 +8,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 })
 export class ListarCancionesComponent implements OnInit {
 
-  qrData: string = 'https://www.ejemplo.com'; // URL o texto que deseas codificar
+  qrData: string = 'http://www.youtube.com'; // URL o texto que deseas codificar
 
   constructor() { }
 

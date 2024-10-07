@@ -43,7 +43,15 @@
                 <button class="btn btn-primary">Reportes</button>
                 <button class="btn btn-secondary">Limpiar</button>
             </div>
-            
+            <br><br>
+            <div class="text-center">
+                AQUI DEBE IR EL CODIGO QR 
+                <ngx-qrcode [qrc-value]="qrData"></ngx-qrcode>
+                <br>
+                <button class="btn btn-secondary">
+                    <a routerLink="/registrarCancion" class="text-white">REGISTRAR CANCIÓN</a>
+                </button>
+            </div>
         </section>
     </body>
 </html>
