@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-  constructor() { }
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
+  logout(): void {
+    // Eliminar el token del localStorage
+    localStorage.removeItem('token');
+
+    // Redirigir al usuario a la página de inicio de sesión
+    this.router.navigate(['/main']);
   }
-
 }
