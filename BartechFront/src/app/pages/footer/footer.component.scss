@@ -89,3 +89,17 @@ body, html {
     text-align: center; /* Asegura que el texto esté centrado */
   }
   
+footer {
+    margin-top: auto; // Empuja el footer hacia abajo
+    padding: 10px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

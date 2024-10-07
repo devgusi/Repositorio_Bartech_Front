@@ -13,11 +13,12 @@ $box-shadow: rgba(0, 0, 0, 0.1);
 .registration-form {
   max-width: 400px;
   margin: auto;
-  padding: 20px;
+  padding: 50px;
   border: 1px solid $border-color;
   border-radius: 10px;
   box-shadow: 0 0 10px $box-shadow;
   background-color: $background-color;
+  margin-top: 6%;
 
   h1 {
     text-align: center;
@@ -33,8 +34,10 @@ $box-shadow: rgba(0, 0, 0, 0.1);
       border: 1px solid $border-color;
       border-radius: 5px;
       outline: none;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
 
-      &:focus {
+      &:focus { 
         border-color: $focus-color;
       }
     }
@@ -71,4 +74,32 @@ $box-shadow: rgba(0, 0, 0, 0.1);
       font-size: 14px;
     }
   }
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto; // Empuja el footer hacia abajo
+  padding: 10px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh; // Esto asegura que la página ocupe al menos el 100% de la altura de la ventana.
 }
