@@ -45,13 +45,12 @@
             </div>
             <br><br>
             <div class="text-center">
-                AQUI DEBE IR EL CODIGO QR 
-                <ngx-qrcode [qrc-value]="qrData"></ngx-qrcode>
-                <br>
-                <button class="btn btn-secondary">
-                    <a routerLink="/registrarCancion" class="text-white">REGISTRAR CANCIÓN</a>
-                </button>
-            </div>
+                <button class="btn btn-primary">
+                    <a routerLink="/registrarCancion" class="text-white">Si deseas registrar una canción escanea el codigo qr</a>
+                  </button>
+                  <br>
+                <canvas id="qrcode"></canvas>
+              </div>              
         </section>
     </body>
 </html>
