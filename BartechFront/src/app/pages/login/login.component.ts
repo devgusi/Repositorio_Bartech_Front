@@ -18,6 +18,8 @@ export class LoginComponent {
       userName: userName,
       password: password,
     };
+    localStorage.setItem('user',userName );
+       
 
     this.http.post(`${environment.CRUD_BARTECH}auth/V1/login`, loginData)
       .subscribe({
@@ -27,7 +29,7 @@ export class LoginComponent {
 
             Swal.fire({
               title: 'Inicio de sesión exitoso',
-              text: '¡Bienvenido a la plataforma!',
+              text: '¡Bienvenido a Bartech!',
               icon: 'success',
               timer: 2000,
               showConfirmButton: false,

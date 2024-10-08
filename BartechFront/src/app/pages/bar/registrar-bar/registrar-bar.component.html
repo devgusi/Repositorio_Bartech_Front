@@ -9,23 +9,23 @@
 
   <div class="registration-bar-form">
     <h1>Registro</h1>
-    <form>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <fieldset>
         <legend class="title-center">Solicitud de registro de establecimiento</legend>
-
+    
         <div class="form-group">
           <label for="nombreEstablecimiento">Nombre del establecimiento</label>
-          <input type="text" id="nombreEstablecimiento" name="nombreEstablecimiento" placeholder="Nombre del establecimiento" aria-label="nombreEstablecimiento" required>
+          <input formControlName="nombreEstablecimiento" type="text" id="nombreEstablecimiento" name="nombreEstablecimiento" placeholder="Nombre del establecimiento" aria-label="nombreEstablecimiento" required>
         </div>
-
+    
         <div class="form-group">
-          <label for="direccion">Direccion del establecimiento</label>
-          <input type="text" id="direccion" name="direccion" placeholder="Dirección del establecimiento" aria-label="direccion" required>
+          <label for="direccion">Dirección del establecimiento</label>
+          <input formControlName="direccion" type="text" id="direccion" name="direccion" placeholder="Dirección del establecimiento" aria-label="direccion" required>
         </div>
-
+    
         <button type="submit">Registrar establecimiento</button>
       </fieldset>
-    </form>
+    </form>    
   </div>
 </body>
 </html>
