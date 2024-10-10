@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import * as QRCode from 'qrcode';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-listar-canciones',
@@ -13,7 +14,8 @@ export class ListarCancionesComponent {
     const canvas = document.getElementById('qrcode') as HTMLCanvasElement;
     
     // Cambia la URL o los datos que quieres codificar
-    const qrData = 'http://localhost:4200/registrarCancion';
+    //const qrData = 'http://localhost:4200/registrarCancion';
+    const qrData = environment.CRUD_BARTECH;
     
     // Genera el QR en el canvas
     QRCode.toCanvas(canvas, qrData, function (error) {
