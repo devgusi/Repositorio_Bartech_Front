@@ -15,7 +15,7 @@ export class ListarCancionesComponent {
     
     // Cambia la URL o los datos que quieres codificar
     //const qrData = 'http://localhost:4200/registrarCancion';
-    const qrData = environment.CRUD_BARTECH;
+    const qrData = environment.qrdata;
     
     // Genera el QR en el canvas
     QRCode.toCanvas(canvas, qrData, function (error) {
