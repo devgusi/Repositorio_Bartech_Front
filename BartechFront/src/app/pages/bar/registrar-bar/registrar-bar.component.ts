@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { HeaderComponent } from '../../header/header.component';
 
 @Component({
   selector: 'app-registrar-bar',
@@ -52,7 +53,6 @@ export class RegistrarBarComponent implements OnInit {
             // Almacenar el userID en la variable userId
             this.userId = user.id;
             console.log('USERID ' ,storedUserName ,this.userId  );
-
             // Guardar también en localStorage para uso futuro si es necesario
             localStorage.setItem('userID', this.userId);
           } else {

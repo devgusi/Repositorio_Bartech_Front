@@ -19,34 +19,24 @@
         <br>
         <table class="table table-bordered">
             <thead class="thead-light">
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre del establecimiento</th>
-                    <th>Direccion del establecimiento</th>
-                    <th>Accciones</th>
-                </tr>
+              <tr>
+                <th>ID</th>
+                <th>Nombre del establecimiento</th>
+                <th>Dirección del establecimiento</th>
+                <th>Acciones</th>
+              </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th>1</th>
-                    <th>Establecimiento 1</th>
-                    <th>Avenida siempre viva 123</th>
-                    <td>
-                        <button class="btn btn-secondary">Editar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <th>2</th>
-                    <th>Establecimiento 2</th>
-                    <th>Avenida calle 26 # 12 </th>
-                    <td>
-                        <button class="btn btn-secondary">Editar</button>
-                    </td>
-                </tr>
+              <tr *ngFor="let bar of bares"> <!-- Recorremos la lista de bares -->
+                <td>{{ bar.id }}</td>
+                <td>{{ bar.name }}</td>
+                <td>{{ bar.address }}</td>
+                <td>
+                  <button class="btn btn-secondary">Editar</button>
+                </td>
+              </tr>
             </tbody>
-        </table>
-
-    
+          </table>
           
     </section>
 </body>
