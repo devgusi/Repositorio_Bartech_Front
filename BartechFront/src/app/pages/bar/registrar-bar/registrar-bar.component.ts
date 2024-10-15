@@ -4,7 +4,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { HeaderComponent } from '../../header/header.component';
 
 @Component({
   selector: 'app-registrar-bar',
@@ -32,7 +31,16 @@ export class RegistrarBarComponent implements OnInit {
     this.token = localStorage.getItem('token') || '';
 
     // Llamar a la función para obtener y almacenar el userId antes de realizar la petición POST
-    this.getUserId();
+    if (this.token) {
+      this.getUserId();
+    } else {
+      Swal.fire({
+        title: 'No autorizado',
+        text: 'El token no es válido o ha expirado.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
+    }
   }
 
   // Función para obtener el userID del usuario actual y almacenarlo
@@ -44,19 +52,14 @@ export class RegistrarBarComponent implements OnInit {
     this.http.get(`${environment.CRUD_BARTECH}user/V1`, { headers })
       .subscribe({
         next: (response: any) => {
-          // Obtener el username almacenado en el localStorage
           const storedUserName = localStorage.getItem('user');
 
           // Buscar el usuario en la lista de la respuesta
           const user = response.find((u: any) => u.userName === storedUserName);
           if (user) {
-            // Almacenar el userID en la variable userId
             this.userId = user.id;
-            console.log('USERID ' ,storedUserName ,this.userId  );
-            // Guardar también en localStorage para uso futuro si es necesario
-            localStorage.setItem('userID', this.userId);
+            localStorage.setItem('userID', this.userId); // Guardar en localStorage
           } else {
-            // Mostrar alerta si no se encuentra el usuario
             Swal.fire({
               title: 'Usuario no encontrado',
               text: 'No se encontró ningún usuario con ese nombre.',
@@ -65,7 +68,7 @@ export class RegistrarBarComponent implements OnInit {
             });
           }
         },
-        error: (err) => {
+        error: () => {
           Swal.fire({
             title: 'Error al obtener usuarios',
             text: 'Hubo un error al intentar obtener los usuarios.',
@@ -80,7 +83,6 @@ export class RegistrarBarComponent implements OnInit {
   onSubmit(): void {
     if (this.registerForm.valid) {
       if (!this.userId) {
-        // Mostrar alerta si aún no se ha obtenido el userID
         Swal.fire({
           title: 'Error',
           text: 'El ID del usuario no está disponible. Intenta de nuevo.',
@@ -96,22 +98,19 @@ export class RegistrarBarComponent implements OnInit {
         name: this.registerForm.value.nombreEstablecimiento
       };
 
-      // Configuramos los encabezados, incluyendo el token
       const headers = new HttpHeaders({
         'Authorization': `Bearer ${this.token}`
       });
-      console.log('USERID ' , this.userId  , 'TOKEN ', localStorage.getItem('token'));
-      // Realizar la petición POST al endpoint con los headers
+
       this.http.post(`${environment.CRUD_BARTECH}pub/V1`, formData, { headers })
         .subscribe({
-          next: (response) => {
+          next: () => {
             Swal.fire({
               title: 'Establecimiento registrado con éxito',
               text: 'El establecimiento ha sido registrado correctamente.',
               icon: 'success',
               confirmButtonText: 'OK'
             }).then(() => {
-              // Redireccionar a otra página
               this.router.navigate(['/listarBares']);
             });
           },

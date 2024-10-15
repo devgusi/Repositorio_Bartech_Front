@@ -18,14 +18,14 @@ export class LoginComponent {
       userName: userName,
       password: password,
     };
-    localStorage.setItem('user',userName );
-       
-
+    
     this.http.post(`${environment.CRUD_BARTECH}auth/V1/login`, loginData)
       .subscribe({
         next: (response: any) => {
           if (response.token) {
+            // Guardar el token y el usuario en localStorage
             localStorage.setItem('token', response.token);
+            localStorage.setItem('user', userName);
 
             Swal.fire({
               title: 'Inicio de sesión exitoso',
@@ -34,6 +34,7 @@ export class LoginComponent {
               timer: 2000,
               showConfirmButton: false,
             }).then(() => {
+              // Redirigir a la página de listado de bares
               this.router.navigate(['/listarBares']);
             });
           }
