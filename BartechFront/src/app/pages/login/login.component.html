@@ -23,41 +23,40 @@
                 <h1 class="text-3xl font-bold text-[#2d3436]">¡Únete a la fiesta!</h1>
                 <p class="text-muted-foreground">Inicia sesión para unirte a la diversión.</p>
               </div>
-              <form (ngSubmit)="onSubmit(userNameInput.value, passwordInput.value)" #loginForm="ngForm">
+              <form (ngSubmit)="onSubmit(userNameInput.value, passwordInput.value)">
                 <div class="form-group">
                   <label for="userName" class="block text-sm font-medium text-[#2d3436]">Usuario</label>
                   <input 
                     class="h-10 text-sm block w-full rounded-full border-2 border-[#a29bfe] bg-[#f1f2f6] px-4 py-2 text-[#2d3436] focus:border-[#6c5ce7]"
                     type="text"
                     id="userName"
-                    name="userName"
                     placeholder="Usuario"
                     required
                     #userNameInput
-                    >
+                  >
                 </div>
-                
+              
                 <div class="form-group">
                   <label for="password" class="block text-sm font-medium text-[#2d3436]">Contraseña</label>
                   <input
                     class="h-10 text-sm block w-full rounded-full border-2 border-[#a29bfe] bg-[#f1f2f6] px-4 py-2 text-[#2d3436] focus:border-[#6c5ce7]"
                     type="password"
                     id="password"
-                    name="password"
                     placeholder="••••••••"
                     required
                     #passwordInput  
                   >
                 </div>
-                
+              
                 <button 
                   class="inline-flex items-center justify-center h-10 w-full rounded-full bg-[#6c5ce7] px-4 py-2 text-white hover:bg-[#a29bfe]"
                   type="submit"
-                  [disabled]="loginForm.invalid"
                 >
                   Iniciar sesión
                 </button>
               </form>
+              
+              
               <br>
               <div class="text-center text-sm text-muted-foreground">
                 ¿No tienes una cuenta?

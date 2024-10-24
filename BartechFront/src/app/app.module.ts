@@ -14,9 +14,9 @@ import { RegistrarBarComponent } from './pages/bar/registrar-bar/registrar-bar.c
 import { ListarBarComponent } from './pages/bar/listar-bar/listar-bar.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ModificarBarComponent } from './pages/bar/modificar-bar/modificar-bar.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+
 import { AuthGuard } from './auth/auth.guard'; // Importar el guardia
 
 

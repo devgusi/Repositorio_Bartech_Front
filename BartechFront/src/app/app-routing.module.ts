@@ -17,10 +17,12 @@ const routes: Routes = [
   { path: 'registrarUsuario', component: RegistroComponent },
   // Aplicar el guardia de autenticación a las rutas protegidas
   { path: 'listarCanciones', component: ListarCancionesComponent, canActivate: [AuthGuard] },
-  { path: 'registrarCancion', component: RegistroCancionesComponent, canActivate: [AuthGuard] },
+  { path: 'registrarCancion/:id', component: RegistroCancionesComponent }, // Ruta ajustada
+
   { path: 'editarUsuario', component: ModificarComponent, canActivate: [AuthGuard]  },
   //bares
   { path: 'listarBares', component: ListarBarComponent , canActivate: [AuthGuard]},
+  { path: 'listarCanciones/:id', component: ListarCancionesComponent, canActivate: [AuthGuard] },
   { path: 'registrarBar', component: RegistrarBarComponent, canActivate: [AuthGuard] },
   { path: 'editarBar', component: ModificarBarComponent , canActivate: [AuthGuard]},
   //canciones
