@@ -36,47 +36,41 @@
             <section class="canciones container my-4">
                 <h2 class="text-center mb-4">Canciones</h2>
                 <table class="table table-bordered">
-                    <thead class="thead-light">
-                      <tr>
-                        <th>ID</th>
-                        <th>Género</th>
-                        <th>Artista</th>
-                        <th>Canción</th>
-                        <th>Acciones</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let cancion of cancionesPaginadas; let i = index" 
-                          [ngClass]="{'fila-reproducida': cancion.reproducida}">
-                        <td>{{ (paginaActual - 1) * cancionesPorPagina + i + 1 }}</td>
-                        <td>{{ cancion.genre }}</td>
-                        <td>{{ cancion.author }}</td>
-                        <td [ngClass]="{'celda-reproducida': cancion.reproducida}">{{ cancion.songName }}</td>
-                        <td>
-                          <button class="btn btn-danger" (click)="verEnYoutube(cancion)" [disabled]="cancion.reproducida">YouTube</button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                  <thead class="thead-light">
+                    <tr>
+                      <th>ID</th>
+                      <th>Género</th>
+                      <th>Artista</th>
+                      <th>Canción</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let cancion of cancionesPaginadas; let i = index" [id]="'fila-' + i">
+                      <td>{{ (paginaActual - 1) * cancionesPorPagina + i + 1 }}</td>
+                      <td>{{ cancion.genre }}</td>
+                      <td>{{ cancion.author }}</td>
+                      <td>{{ cancion.songName }}</td>
+                      <td>
+                        <button class="btn youtube" (click)="verEnYoutube(cancion, i)" 
+                                [disabled]="cancion.reproducida">YouTube</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+                <!-- Paginador -->
+                <div class="paginador">
+                  <button class="paginador-boton" (click)="cambiarPagina('anterior')" 
+                          [disabled]="paginaActual === 1">Anterior</button>
                   
-
-<!-- Paginación -->
-<nav *ngIf="canciones.length > cancionesPorPagina">
-  <ul class="pagination">
-    <li class="page-item" [class.disabled]="paginaActual === 1">
-      <button class="page-link" (click)="cambiarPagina(paginaActual - 1)">Anterior</button>
-    </li>
-    <li class="page-item" *ngFor="let pagina of [].constructor(Math.ceil(canciones.length / cancionesPorPagina)); let p = index"
-        [class.active]="p + 1 === paginaActual">
-      <button class="page-link" (click)="cambiarPagina(p + 1)">{{ p + 1 }}</button>
-    </li>
-    <li class="page-item" [class.disabled]="paginaActual === Math.ceil(canciones.length / cancionesPorPagina)">
-      <button class="page-link" (click)="cambiarPagina(paginaActual + 1)">Siguiente</button>
-    </li>
-  </ul>
-</nav>
-
+                  <span>Página {{paginaActual}} de {{ Math.ceil(canciones.length / cancionesPorPagina) }}</span>
                   
+                  <button class="paginador-boton" (click)="cambiarPagina('siguiente')" 
+                          [disabled]="paginaActual === Math.ceil(canciones.length / cancionesPorPagina)">Siguiente</button>
+                </div>
+                
+
                 <div class="buttons d-flex justify-content-between">
                     <button class="btn btn-primary">Reportes</button>
                     <button class="btn btn-secondary">Limpiar</button>
