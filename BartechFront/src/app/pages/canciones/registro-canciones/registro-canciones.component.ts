@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import Swal from 'sweetalert2'; // Opcional para alertas
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -64,7 +65,7 @@ export class RegistroCancionesComponent implements OnInit {
     });
 
     // Realizamos la petición POST al endpoint
-    this.http.post('http://localhost:8080/playlist/V1/user/song', nuevaCancion, { headers })
+    this.http.post(`${environment.CRUD_BARTECH}/playlist/V1/user/song`, nuevaCancion, { headers })
       .subscribe({
         next: (response) => {
           // Mostrar alerta de éxito con Swal (opcional)

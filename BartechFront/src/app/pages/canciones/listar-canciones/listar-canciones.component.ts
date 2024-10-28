@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import * as QRCode from 'qrcode';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-listar-canciones',
@@ -37,7 +38,7 @@ export class ListarCancionesComponent implements OnInit {
       'Content-Type': 'application/json'
     });
 
-    this.http.get<any[]>(`http://localhost:8080/playlist/V1/${this.barId}`, { headers })
+    this.http.get<any[]>(`${environment.CRUD_BARTECH}/playlist/V1/${this.barId}`, { headers })
       .subscribe({
         next: (response) => {
           this.canciones = response
