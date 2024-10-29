@@ -2,7 +2,7 @@ export const environment = {
   production: true,
   entorno: 'prod',
   //SERVICES PLANEACIÓN
-  CRUD_BARTECH: 'http://172.19.3.253:8084/',
+  CRUD_BARTECH: 'https://141.148.73.46/',
 
   //CONSTANTE DEL QR
   //const qrData = 'http://localhost:4200/registrarCancion';
