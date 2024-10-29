@@ -5,7 +5,7 @@ export const environment = {
   CRUD_BARTECH: 'https://141.148.73.46/',
 
   //CONSTANTE DEL QR
-  qrData : 'http://localhost:4200/registrarCancion',
+  qrData : 'https://k24fpfim43xwqjftf4fza477vu.apigateway.us-ashburn-1.oci.customer-oci.com/registrarCancion',
   //qrdata : 'https://www.youtube.com/watch?v=x2oUajHp8pg',
 
 };

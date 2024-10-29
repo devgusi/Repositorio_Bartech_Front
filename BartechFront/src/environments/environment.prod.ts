@@ -6,5 +6,5 @@ export const environment = {
 
   //CONSTANTE DEL QR
   //const qrData = 'http://localhost:4200/registrarCancion';
-  qrdata : 'https://www.youtube.com/watch?v=x2oUajHp8pg',
+  qrdata : 'https://k24fpfim43xwqjftf4fza477vu.apigateway.us-ashburn-1.oci.customer-oci.com/registrarCancion',
 };
