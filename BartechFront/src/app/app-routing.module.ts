@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'main', component: LoginComponent },
   { path: '', component: LoginComponent },
   { path: '', redirectTo: '/main', pathMatch: 'full' }, // Redirige al inicio de /main'
-  { path: '**', redirectTo: '/main' }, // Manejo de rutas no encontradas, redirige a /main
+  //{ path: '**', redirectTo: '/main' }, // Manejo de rutas no encontradas, redirige a /main
   { path: 'registrarUsuario', component: RegistroComponent },
   // Aplicar el guardia de autenticación a las rutas protegidas
   { path: 'listarCanciones', component: ListarCancionesComponent, canActivate: [AuthGuard] },
