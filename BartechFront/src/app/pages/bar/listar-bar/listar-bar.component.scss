@@ -12,6 +12,14 @@ header {
     padding: 20px;
 }
 
+footer {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
 .canciones {
     padding: 20px;
 
@@ -72,14 +80,7 @@ button {
     margin-top: 20px;
 }
 
-footer {
-    text-align: center;
-    background-color: #f8f9fa;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
+
 
 @media (max-width: 768px) {
     .buttons {

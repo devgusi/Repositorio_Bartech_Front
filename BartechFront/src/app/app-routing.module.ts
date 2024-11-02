@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'listarBares', component: ListarBarComponent , canActivate: [AuthGuard]},
   { path: 'listarCanciones/:id', component: ListarCancionesComponent, canActivate: [AuthGuard] },
   { path: 'registrarBar', component: RegistrarBarComponent, canActivate: [AuthGuard] },
-  { path: 'editarBar', component: ModificarBarComponent , canActivate: [AuthGuard]},
+  { path: 'editarBar/:id', component: ModificarBarComponent , canActivate: [AuthGuard]},
   //canciones
  // Añade otras rutas protegidas que necesiten el token
 ];

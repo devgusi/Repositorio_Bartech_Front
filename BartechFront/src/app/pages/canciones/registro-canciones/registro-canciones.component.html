@@ -9,6 +9,13 @@
     <br>
 
     <div class="registration-cancion-form">
+      <div class="back-arrow" title="Volver" (click)="navegarAtras()">
+        <!-- Usa una flecha o un icono, por ejemplo, de FontAwesome -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">SDASDADSF
+          <path fill-rule="evenodd" style="color: BLACK;" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5"/>
+          PRUEBA PRUEBA PRUEBA
+        </svg>
+      </div>
       <h1>Registro</h1>
       <form [formGroup]="cancionForm" (ngSubmit)="onSubmit()">
         <fieldset>
@@ -16,7 +23,18 @@
       
           <div class="form-group">
             <label for="genero">Género</label>
-            <input formControlName="genero" type="text" id="genero" placeholder="Género musical" aria-label="Genero" required>
+            <select formControlName="genero" id="genero" aria-label="Genero" class="form-select" required>
+              <option value="">Selecciona un género</option>
+              <option value="Salsa">Salsa</option>
+              <option value="Pop">Pop</option>
+              <option value="Vallenato">Vallenato</option>
+              <option value="Jazz">Jazz</option>
+              <option value="Merengue">Merengue</option>
+              <option value="Regaeton">Regaeton</option>
+              <option value="Electrónica">Electrónica</option>
+              <option value="Clásica">Clásica</option>
+              <option value="Reggae">Reggae</option>
+            </select>
           </div>
       
           <div class="form-group">

@@ -1,5 +1,21 @@
-.toolbar {
-  position: absolute;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  flex: 1;
+}
+
+.header {
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
@@ -13,30 +29,41 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.toolbar img {
-  height: 100%;
-}
-
-.toolbar-content {
+/* Estilos del header */
+.toolbar {
+  position: sticky; /* Fija el header en la parte superior al hacer scroll */
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
   display: flex;
   align-items: center;
-  margin-left: auto;
+  background-color: #000000;
+  color: white;
+  font-weight: 600;
+  padding: 0 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 10; /* Asegura que el header esté sobre otros elementos */
 }
 
-.toolbar #twitter-logo {
-  height: 100%;
-  margin-left: 16px;
-}
-
-.toolbar #twitter-logo:hover {
-  opacity: 0.8;
-}
-
+.toolbar img,
+.toolbar #twitter-logo,
 .bartech-logo {
   height: 100%;
 }
 
-@media (max-width: 50%) {
+
+
+#twitter-logo {
+  margin-left: 16px;
+  transition: opacity 0.3s;
+}
+
+#twitter-logo:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 600px) { /* Ajuste para pantallas pequeñas */
   .toolbar {
     flex-direction: column;
     align-items: flex-start;
@@ -44,32 +71,12 @@
     padding: 10px;
   }
 
-  .toolbar img, .toolbar #twitter-logo {
+  .toolbar img, 
+  .toolbar #twitter-logo {
     margin: 8px 0;
+    height: auto;
+    max-width: 100%;
   }
 
-  .toolbar-content {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-  }
 
-  .toolbar-content span, .toolbar-content a {
-    margin: 8px 0;
-  }
-}
-
-footer {
-  margin-top: auto; // Empuja el footer hacia abajo
-  padding: 10px;
-  background-color: black;
-  color: white;
-  text-align: center;
-  width: 100%;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }

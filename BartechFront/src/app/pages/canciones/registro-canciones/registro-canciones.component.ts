@@ -65,7 +65,7 @@ export class RegistroCancionesComponent implements OnInit {
     });
 
     // Realizamos la petición POST al endpoint
-    this.http.post(`${environment.CRUD_BARTECH}/playlist/V1/user/song`, nuevaCancion, { headers })
+    this.http.post(`${environment.CRUD_BARTECH}playlist/V1/user/song`, nuevaCancion, { headers })
       .subscribe({
         next: (response) => {
           // Mostrar alerta de éxito con Swal (opcional)
@@ -89,5 +89,8 @@ export class RegistroCancionesComponent implements OnInit {
         }
       });
   }
+}
+navegarAtras() {
+  window.history.back(); // Redirige a la página anterior
 }
 }

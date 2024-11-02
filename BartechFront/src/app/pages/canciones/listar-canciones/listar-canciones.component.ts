@@ -38,12 +38,12 @@ export class ListarCancionesComponent implements OnInit {
       'Content-Type': 'application/json'
     });
 
-    this.http.get<any[]>(`${environment.CRUD_BARTECH}/playlist/V1/${this.barId}`, { headers })
+    this.http.get<any[]>(`${environment.CRUD_BARTECH}playlist/V1/${this.barId}`, { headers })
       .subscribe({
         next: (response) => {
           this.canciones = response
             .sort((a, b) => b.id - a.id)
-            .map(cancion => ({ ...cancion, reproducida: false }));
+            .map(cancion => ({ ...cancion, reproducida: false, abierta: false })); // Agregar abierta
           this.paginarCanciones();
         },
         error: (err) => {
@@ -57,15 +57,13 @@ export class ListarCancionesComponent implements OnInit {
     const youtubeUrl = `https://www.youtube.com/results?search_query=${query}`;
     window.open(youtubeUrl, '_blank');
 
-    // Cambiar el color de la fila con JavaScript
+    cancion.reproducida = true;
+    cancion.abierta = true; // Cambiar el estado para que se aplique la clase
+
     const fila = this.el.nativeElement.querySelector(`#fila-${index}`);
     if (fila) {
-      this.renderer.setStyle(fila, 'background-color', '#d9f7be'); // Color verde claro
-      this.renderer.setStyle(fila, 'color', '#237804'); // Color de texto verde oscuro
+        fila.classList.add('bg-light');
     }
-
-    // Cambiar el estado de la canción para evitar reproducir de nuevo
-    cancion.reproducida = true;
   }
 
   paginarCanciones(): void {
@@ -89,5 +87,8 @@ export class ListarCancionesComponent implements OnInit {
       if (error) console.error(error);
       else console.log('Código QR generado correctamente');
     });
+  }
+  navegarAtras() {
+    window.history.back(); // Redirige a la página anterior
   }
 }

@@ -11,6 +11,7 @@ $box-shadow: rgba(0, 0, 0, 0.1);
 }
 
 .registration-cancion-form {
+  position: relative;
   max-width: 400px;
   margin: auto;
   padding: 20px;
@@ -73,17 +74,57 @@ $box-shadow: rgba(0, 0, 0, 0.1);
   }
 }
 
-footer {
-  margin-top: auto; // Empuja el footer hacia abajo
-  padding: 10px;
-  background-color: black;
-  color: white;
+//AJUSTE DE ESTILOS PARA TODOS LOS COMPONENTES!
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+header {
   text-align: center;
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+footer {
+  text-align: center;
+  background-color: #f8f9fa;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.toolbar-content {
+  flex-direction: column;
   width: 100%;
 }
 
-.footer-content {
+.toolbar-content {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin-left: auto;
+}
+
+.toolbar-content span, 
+.toolbar-content a {
+  margin: 8px 0;
+}
+
+
+
+.back-arrow {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 20px;
+  color: #000000;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.back-arrow:hover {
+  transform: scale(1.1);
 }

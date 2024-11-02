@@ -1,35 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
-  <header>
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Bar</title>
+  <img src="../../../assets/resources/bartech_logo_reducido_transp.png" alt="Logo" class="bartech-logo">
+
+</head>
+<body>
+  <header class="header">
+    <!-- Contenido del header -->
     <app-header></app-header>
   </header>
-<body>
+  <div class="main-content">
   <br>
   <br>
 
   <div class="editar-bar-form">
+    <div class="back-arrow" title="Volver" (click)="navegarAtras()">
+      <!-- Usa una flecha o un icono, por ejemplo, de FontAwesome -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" style="color: black;" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5"/>
+      </svg>
+    </div>
     <h1>Modificar</h1>
-    <form>
+    <form (submit)="enviarFormulario($event)">
       <fieldset>
-        <legend class="title-center">Solicitud de actualizar establecimiento</legend>
-
+        <legend class="title-center">Actualizar establecimiento</legend>
+    
         <div class="form-group">
           <label for="nombreEstablecimiento">Nombre del establecimiento</label>
-          <input type="text" id="nombreEstablecimiento" name="nombreEstablecimiento" placeholder="Nombre del establecimiento" aria-label="nombreEstablecimiento" required>
+          <input type="text" id="nombreEstablecimiento" name="nombreEstablecimiento" placeholder="Nombre del establecimiento" aria-label="nombreEstablecimiento" [(ngModel)]="nombreEstablecimiento" required>
         </div>
-
+    
         <div class="form-group">
           <label for="direccion">Direccion del establecimiento</label>
-          <input type="text" id="direccion" name="direccion" placeholder="Dirección del establecimiento" aria-label="direccion" required>
+          <input type="text" id="direccion" name="direccion" placeholder="Dirección del establecimiento" aria-label="direccion" [(ngModel)]="direccion" required>
         </div>
-
+    
         <button type="submit">Registrar establecimiento</button>
       </fieldset>
     </form>
   </div>
+</div>
+<footer class="footer">
+  <div class="toolbar-content">
+    <button (click)="logout()" class="btn btn-danger text-white px-4 py-2 rounded " style="align-items: end;">
+      <strong>CERRAR SESION</strong>
+    </button>
+  </div>
+  <!-- Contenido del footer -->
+  <app-footer></app-footer>
+  
+</footer>
 </body>
 </html>
-<footer>
-  <app-footer> </app-footer>
-</footer>
-

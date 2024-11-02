@@ -6,14 +6,10 @@ body {
 
 }
 
-header {
-    text-align: center;
-    background-color: #f8f9fa;
-    padding: 20px;
-}
 
 .canciones {
     padding: 20px;
+    position: relative;
 
     h2 {
         font-size: 2rem;
@@ -72,14 +68,6 @@ button {
     margin-top: 20px;
 }
 
-footer {
-    text-align: center;
-    background-color: #f8f9fa;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
 
 @media (max-width: 768px) {
     .buttons {
@@ -100,21 +88,6 @@ input {
     margin: 20px 0;
     padding: 10px;
     font-size: 16px;
-  }
-  
-  footer {
-    margin-top: auto; // Empuja el footer hacia abajo
-    padding: 10px;
-    background-color: black;
-    color: white;
-    text-align: center;
-    width: 100%;
-  }
-  
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
   
   .page-container {
@@ -150,4 +123,64 @@ input {
     cursor: not-allowed;
   }
   
+
+
+//AJUSTE DE ESTILOS PARA TODOS LOS COMPONENTES!
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   
+  }
+  
+  header {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 20px;
+  }
+  
+  footer {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+  
+  .toolbar-content {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .toolbar-content {
+    display: flex;
+    margin-left: auto;
+  }
+  
+  .toolbar-content span, 
+  .toolbar-content a {
+    margin: 8px 0;
+  }
+  
+  
+  
+  .back-arrow {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 20px;
+    color: #000000;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .back-arrow:hover {
+    transform: scale(1.1);
+  }
+
+  .bg-light {
+    background-color: #ecbef7 !important; // Color verde claro
+    color: #237804; // Color de texto verde oscuro
+}

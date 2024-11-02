@@ -34,47 +34,55 @@
             </div>    
 
             <section class="canciones container my-4">
-                <h2 class="text-center mb-4">Canciones</h2>
-                <table class="table table-bordered">
-                  <thead class="thead-light">
-                    <tr>
-                      <th>ID</th>
-                      <th>Género</th>
-                      <th>Artista</th>
-                      <th>Canción</th>
-                      <th>Acciones</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let cancion of cancionesPaginadas; let i = index" [id]="'fila-' + i">
-                      <td>{{ (paginaActual - 1) * cancionesPorPagina + i + 1 }}</td>
-                      <td>{{ cancion.genre }}</td>
-                      <td>{{ cancion.author }}</td>
-                      <td>{{ cancion.songName }}</td>
-                      <td>
-                        <button class="btn youtube" (click)="verEnYoutube(cancion, i)" 
-                                [disabled]="cancion.reproducida">YouTube</button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="back-arrow" title="Volver" (click)="navegarAtras()">
+                <!-- Usa una flecha o un icono, por ejemplo, de FontAwesome -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5"/> 
+                </svg>
+                Atras
+              </div>
+              <h2 class="text-center mb-4">Canciones</h2>
+              <table class="table table-bordered">
+                <thead class="thead-light">
+                  <tr>
+                    <th>ID</th>
+                    <th>Género</th>
+                    <th>Artista</th>
+                    <th>Canción</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let cancion of cancionesPaginadas; let i = index" 
+                      [ngClass]="{'bg-light': cancion.abierta}" 
+                      [id]="'fila-' + i">
+                    <td>{{ (paginaActual - 1) * cancionesPorPagina + i + 1 }}</td>
+                    <td>{{ cancion.genre }}</td>
+                    <td>{{ cancion.author }}</td>
+                    <td>{{ cancion.songName }}</td>
+                    <td>
+                      <button class="btn youtube" (click)="verEnYoutube(cancion, i)" 
+                              [disabled]="cancion.reproducida">YouTube</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            
+              <!-- Paginador -->
+              <div class="paginador">
+                <button class="paginador-boton" (click)="cambiarPagina('anterior')" 
+                        [disabled]="paginaActual === 1">Anterior</button>
                 
-                <!-- Paginador -->
-                <div class="paginador">
-                  <button class="paginador-boton" (click)="cambiarPagina('anterior')" 
-                          [disabled]="paginaActual === 1">Anterior</button>
-                  
-                  <span>Página {{paginaActual}} de {{ Math.ceil(canciones.length / cancionesPorPagina) }}</span>
-                  
-                  <button class="paginador-boton" (click)="cambiarPagina('siguiente')" 
-                          [disabled]="paginaActual === Math.ceil(canciones.length / cancionesPorPagina)">Siguiente</button>
-                </div>
+                <span>Página {{paginaActual}} de {{ Math.ceil(canciones.length / cancionesPorPagina) }}</span>
                 
-
-                <div class="buttons d-flex justify-content-between">
-                    <button class="btn btn-primary">Reportes</button>
-                    <button class="btn btn-secondary">Limpiar</button>
-                </div>
+                <button class="paginador-boton" (click)="cambiarPagina('siguiente')" 
+                        [disabled]="paginaActual === Math.ceil(canciones.length / cancionesPorPagina)">Siguiente</button>
+              </div>
+            
+              <div class="buttons d-flex justify-content-between">
+                <button class="btn btn-primary">Reportes</button>
+                <button class="btn btn-secondary">Limpiar</button>
+              </div>
             </section>
             <footer>
                 <app-footer></app-footer>
