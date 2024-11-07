@@ -81,5 +81,9 @@ export class RegistroComponent implements OnInit {
       });
     }
   }
+
+  navegarAtras() {
+    window.history.back(); // Redirige a la página anterior
+  }
   
 }

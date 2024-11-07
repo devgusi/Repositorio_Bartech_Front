@@ -18,7 +18,7 @@ $box-shadow: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   box-shadow: 0 0 10px $box-shadow;
   background-color: $background-color;
-  margin-top: 6%;
+  margin-top: 2%;
 
   h1 {
     text-align: center;
@@ -80,7 +80,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: auto;
 }
 
 footer {
@@ -100,5 +100,45 @@ footer {
 .page-container {
   display: flex;
   flex-direction: column;
-  min-height: 90vh; // Esto asegura que la página ocupe al menos el 100% de la altura de la ventana.
+  min-height: 80vh; // Esto asegura que la página ocupe al menos el 100% de la altura de la ventana.
+}
+
+.back-arrow {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 20px;
+  color: #000000;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.back-arrow:hover {
+  transform: scale(1.1);
+}
+.toolbar {
+  position: relative; /* Fija el header en la parte superior al hacer scroll */
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  background-color: #000000;
+  color: white;
+  font-weight: 600;
+  padding: auto 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 10; /* Asegura que el header esté sobre otros elementos */
+}
+.toolbar-content {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.toolbar img,
+.toolbar #twitter-logo,
+.bartech-logo {
+  height: 100%;
 }

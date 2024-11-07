@@ -2,11 +2,23 @@
 <html lang="es">
   <head>
     <!-- meta tags, title, etc. -->
+    
   </head>
+  <header class="toolbar ">
+    <img src="../../../assets/resources/bartech_logo_reducido_transp.png" alt="Logo" class="bartech-logo">
+      <div class="toolbar-content">
+      <!-- Contenido adicional del header (como enlaces, texto, etc.) -->
+      <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter" id="twitter-logo">
+        <svg id="twitter-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+          <!-- SVG path here -->
+        </svg>
+      </a>
+    </div>
+  </header>
   <body>
     <div class="page-container">
-      <app-header></app-header>
       <div class="registration-form">
+
       <h1>Registro</h1>
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <fieldset>
@@ -31,12 +43,16 @@
             <label for="surname">Apellidos</label>
             <input type="text" id="surname" formControlName="surname" placeholder="Apellidos" required>
           </div>
-      
+          
           <button type="submit">Registrarse</button>
         </fieldset>
       </form>
-      
+      <br>
+      <div>
+        <label for="surname">Si tiene Usuario Ve a <a routerLink="/main">Iniciar Sesion</a></label>
+      </div>
     </div>
+    
     </div>
     <app-footer></app-footer>
   </body>

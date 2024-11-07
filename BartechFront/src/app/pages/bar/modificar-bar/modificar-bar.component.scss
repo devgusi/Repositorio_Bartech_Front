@@ -86,6 +86,7 @@ body {
 header {
   text-align: center;
   background-color: #f8f9fa;
+  
 }
 
 footer {
@@ -118,11 +119,9 @@ footer {
   top: 20px;
   left: 20px;
   font-size: 20px;
-  color: #d9534f;
+  color: #000000;
   cursor: pointer;
   transition: transform 0.3s ease;
-  width: auto;
-  height: auto;
 }
 
 .back-arrow:hover {

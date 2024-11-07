@@ -80,7 +80,7 @@ export class ModificarBarComponent implements OnInit {
       address: direccion
     };
 
-    this.http.put(`http://localhost:8080/pub/V1/${this.barId}`, data,{ headers })
+    this.http.put(`${environment.CRUD_BARTECH}pub/V1/${this.barId}`, data,{ headers })
     .subscribe({
       next: () => {
         Swal.fire({

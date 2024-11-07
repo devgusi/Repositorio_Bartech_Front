@@ -53,6 +53,7 @@ export class ListarCancionesComponent implements OnInit {
   }
 
   verEnYoutube(cancion: any, index: number): void {
+    
     const query = encodeURIComponent(`${cancion.songName} ${cancion.genre} ${cancion.author}`);
     const youtubeUrl = `https://www.youtube.com/results?search_query=${query}`;
     window.open(youtubeUrl, '_blank');

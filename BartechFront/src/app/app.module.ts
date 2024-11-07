@@ -27,14 +27,14 @@ const appRoutes: Routes = [
   //login
   { path: 'main', component: LoginComponent },
   //usuarios
-  { path: 'registrarUsuario', component: RegistroComponent },
+  { path: 'registrarUsuario', component: RegistroComponent , canActivate: [AuthGuard] },
   { path: 'editarUsuario', component: ModificarComponent },
   //bares
   { path: 'listarBares', component: ListarBarComponent },
   { path: 'registrarBar', component: RegistrarBarComponent },
   { path: 'editarBar', component: ModificarBarComponent },
   //canciones
-  { path: 'listarCanciones', component: ListarCancionesComponent },
+  { path: 'listarCanciones', component: ListarCancionesComponent, canActivate: [AuthGuard] },
   { path: 'registrarCancion', component: RegistroCancionesComponent },
 ];
 

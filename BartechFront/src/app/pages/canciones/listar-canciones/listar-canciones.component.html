@@ -20,13 +20,13 @@
         <app-header></app-header>
         <div class="vista">
             <div class="text-center">
-                <button class="btn btn-success" (click)="generarQRCode()"> 
+                <button class="btn btn-success" (click)="generarQRCode()" style="background-color: #d9534f;"> 
                   Si deseas registrar una canción, escanea el código QR
                 </button>
                 <br>
                 <canvas id="qrcode"></canvas>
                 <br>
-                <button class="font-medium text-[#6c5ce7] hover:underline btn btn-success" 
+                <button class="font-medium text-[#6c5ce7] hover:underline btn btn-success" style="background-color: #d9534f;"
                 [routerLink]="['/registrarCancion', barId]">
                 Solicitar Aqui
               </button>
@@ -34,14 +34,14 @@
             </div>    
 
             <section class="canciones container my-4">
-              <div class="back-arrow" title="Volver" (click)="navegarAtras()">
+              <div class="back-arrow" title="Volver" style="background-color: #d9534f;" class="btn btn-danger" (click)="navegarAtras()">
                 <!-- Usa una flecha o un icono, por ejemplo, de FontAwesome -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5"/> 
                 </svg>
                 Atras
               </div>
-              <h2 class="text-center mb-4">Canciones</h2>
+              <h2 class="text-center mb-4"> <strong>Canciones</strong></h2>
               <table class="table table-bordered">
                 <thead class="thead-light">
                   <tr>
@@ -56,12 +56,13 @@
                   <tr *ngFor="let cancion of cancionesPaginadas; let i = index" 
                       [ngClass]="{'bg-light': cancion.abierta}" 
                       [id]="'fila-' + i">
+                    <td style="display: display;">{{ cancion.id }}</td>
                     <td>{{ (paginaActual - 1) * cancionesPorPagina + i + 1 }}</td>
                     <td>{{ cancion.genre }}</td>
                     <td>{{ cancion.author }}</td>
                     <td>{{ cancion.songName }}</td>
                     <td>
-                      <button class="btn youtube" (click)="verEnYoutube(cancion, i)" 
+                      <button class="btn youtube" style="background-color: #d9534f;" (click)="verEnYoutube(cancion, i)" 
                               [disabled]="cancion.reproducida">YouTube</button>
                     </td>
                   </tr>

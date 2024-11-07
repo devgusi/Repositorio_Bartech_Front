@@ -152,4 +152,7 @@ export class RegistrarBarComponent implements OnInit {
       });
     }
   }
+  navegarAtras() {
+    window.history.back(); // Redirige a la página anterior
+  }
 }
