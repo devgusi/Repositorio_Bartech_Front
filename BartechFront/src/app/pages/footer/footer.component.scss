@@ -21,13 +21,19 @@ body {
 }
 
 .footer {
-    background-color: #000000;
-    position: sticky; /* Fija el header en la parte superior al hacer scroll */
-    color: #fff;
-    text-align: center;
-    padding: auto 16px;
+    position:relative; /* Fija el header en la parte superior al hacer scroll */
+    top: 0;
+    left: 0;
+    right: 0;
     height: 80px;
-    z-index: 10; /* Asegura que el header esté sobre otros elementos */
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    color: white;
+    font-weight: 600;
+    padding: auto 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 10; 
   }
 
 .footer-content {

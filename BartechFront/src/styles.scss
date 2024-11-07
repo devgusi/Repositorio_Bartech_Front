@@ -29,18 +29,18 @@
   }
   
   .header {
-    position: sticky;
+    position: relative;
     top: 0;
-    width: 100%;
     background-color: #000000;
     color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     padding: 20px;
+    width: 100%;
     overflow-y: auto; /* Habilita el scroll vertical */
   }
   
   .footer {
-    position: sticky;
+    position: relative;
     background-color: #000000;
     color: white;
     text-align: center;
