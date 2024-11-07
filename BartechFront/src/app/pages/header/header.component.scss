@@ -35,15 +35,21 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 70px;
+  height: 80px;
   display: flex;
   align-items: center;
   background-color: #000000;
   color: white;
   font-weight: 600;
-  padding: 0 16px;
+  padding: auto 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   z-index: 10; /* Asegura que el header esté sobre otros elementos */
+}
+.toolbar-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .toolbar img,
@@ -68,7 +74,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     height: auto;
-    padding: 10px;
+    padding: auto;
   }
 
   .toolbar img, 

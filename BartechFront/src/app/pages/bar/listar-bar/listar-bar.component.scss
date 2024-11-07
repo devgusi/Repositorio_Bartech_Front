@@ -3,8 +3,26 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-y: auto; /* Habilita el scroll vertical */
 
 }
+.flex {
+    display: flex;
+  }
+  
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  
+  .flex-col {
+    flex-direction: column;
+  }
+  
+  .md\\:flex-row {
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
 
 header {
     text-align: center;

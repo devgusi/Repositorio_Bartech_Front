@@ -10,19 +10,22 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;  /* Permite scroll vertical */
   }
   
   body {
     font-family: Arial, sans-serif;
+    overflow-y: auto;  /* Permite scroll vertical */
   }
   
   /* Estructura del layout */
   .main-content {
-    flex: 1; /* Esto hace que ocupe el espacio restante entre el header y el footer */
+    //flex: 1; /* Esto hace que ocupe el espacio restante entre el header y el footer */
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    overflow-y: auto;  /* Permite scroll vertical */
   }
   
   .header {
@@ -33,12 +36,15 @@
     color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     padding: 20px;
+    overflow-y: auto; /* Habilita el scroll vertical */
   }
   
   .footer {
+    position: sticky;
     background-color: #000000;
     color: white;
     text-align: center;
     padding: 20px;
     width: 100%;
+
   }

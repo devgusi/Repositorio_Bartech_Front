@@ -22,10 +22,12 @@ body {
 
 .footer {
     background-color: #000000;
+    position: sticky; /* Fija el header en la parte superior al hacer scroll */
     color: #fff;
     text-align: center;
-    padding: 20px 0;
-    width: 100%;
+    padding: auto 16px;
+    height: 80px;
+    z-index: 10; /* Asegura que el header esté sobre otros elementos */
   }
 
 .footer-content {

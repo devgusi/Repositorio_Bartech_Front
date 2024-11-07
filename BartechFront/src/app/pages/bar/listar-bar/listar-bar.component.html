@@ -1,15 +1,15 @@
+<header>
+  <app-header></app-header>
+</header>
+
 <!DOCTYPE html>
 <html lang="es">
-    <header>
-        <app-header></app-header>
-    </header>
-
 <body>
-    <header class="bg-light text-center py-4">
+    <!--<header class="bg-light text-center py-4">
         <h1>BarTech</h1>
-    </header>
+    </header>-->
 
-    <section class="canciones container my-4">
+    <section class="flex min-h-screen flex-col md:flex-row items-center justify-center canciones container my-4">
         <h2 class="text-center mb-4">Tus Establecimientos</h2>
         <div class="text-center text-sm text-muted-foreground">
             <button class="font-medium text-[#6c5ce7] hover:underline btn btn-success" routerLink="/registrarBar">
@@ -38,11 +38,12 @@
                 </td>
               </tr>
             </tbody>
-          </table>
-          
+          </table>      
     </section>
+
 </body>
-</html>
-<footer>
+  <footer>
     <app-footer></app-footer>
-</footer>
+  </footer>
+</html>
+
