@@ -16,6 +16,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ModificarBarComponent } from './pages/bar/modificar-bar/modificar-bar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ReportesComponent } from './pages/reportes/reportes.component';
 
 import { AuthGuard } from './auth/auth.guard'; // Importar el guardia
 
@@ -36,6 +37,8 @@ const appRoutes: Routes = [
   //canciones
   { path: 'listarCanciones', component: ListarCancionesComponent, canActivate: [AuthGuard] },
   { path: 'registrarCancion', component: RegistroCancionesComponent },
+  //reportes
+  { path: 'reportes', component: ReportesComponent },
 ];
 
 @NgModule({
@@ -51,6 +54,7 @@ const appRoutes: Routes = [
     RegistrarBarComponent,
     ListarBarComponent,
     ModificarBarComponent,
+    ReportesComponent
   ],
   imports: [
     BrowserModule,

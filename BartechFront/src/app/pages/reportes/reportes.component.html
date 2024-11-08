@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Aplicación</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            overflow-y: auto; /* Permite el desplazamiento vertical */
+            height: 100vh; /* Establece la altura del viewport */
+        }
+        .canciones {
+            padding-bottom: 50px; /* Espacio para que no se corte el footer */
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <app-header></app-header>
+        <div class="vista">
+            <section class="canciones container my-4">
+              <div class="back-arrow" title="Volver" style="background-color: #d9534f;" class="btn btn-danger" (click)="navegarAtras()">
+                <!-- Usa una flecha o un icono, por ejemplo, de FontAwesome -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5"/> 
+                </svg>
+                Atras
+              </div>
+              <div class="form-group text-center">
+                <h2 class="text-center mb-4"><strong>Top de Generos</strong></h2>
+                <!-- Botón para exportar a Excel -->
+                <button (click)="exportarTablaExcel()" class="btn btn-success mt-3">Exportar a Excel</button>
+              </div>
+              
+              <table class="table table-bordered">
+                <thead class="thead-light">
+                  <tr>
+                    <th>Top</th>
+                    <th>Género</th>
+                    <th>Repeticiones</th>
+                    <th>Canción Más Común</th> <!-- Nueva columna para la palabra más repetida -->
+                    <th>Canción Más Repetida</th> <!-- Nueva columna -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let genero of generosConteo; let i = index">
+                    <td>{{ i + 1 }}</td> <!-- Top basado en la posición en el arreglo ordenado -->
+                    <td>{{ genero.genero }}</td>
+                    <td>{{ genero.repeticiones }}</td>
+                    <td>{{ genero.palabraMasRepetida }}</td> <!-- Mostrar la palabra más repetida -->
+                    <td>{{ genero.cancionMasRepetida }}</td> <!-- Mostrar la canción más repetida -->
+                  </tr>
+                </tbody>
+              </table>
+  
+            </section>
+              
+            
+            <footer>
+                <app-footer></app-footer>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

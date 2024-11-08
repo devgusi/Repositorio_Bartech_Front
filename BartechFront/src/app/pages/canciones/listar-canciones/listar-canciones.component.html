@@ -54,19 +54,23 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let cancion of cancionesPaginadas; let i = index" 
-                      [ngClass]="{'bg-light': cancion.abierta}" 
+                      [ngClass]="{'bg-orange': cancion.isPlayed}" 
                       [id]="'fila-' + i">
-                    <td style="display: display;">{{ cancion.id }}</td>
+                    <td style="display: none;">{{ cancion.isPlayed }}</td>
                     <td>{{ (paginaActual - 1) * cancionesPorPagina + i + 1 }}</td>
                     <td>{{ cancion.genre }}</td>
                     <td>{{ cancion.author }}</td>
                     <td>{{ cancion.songName }}</td>
                     <td>
-                      <button class="btn youtube" style="background-color: #d9534f;" (click)="verEnYoutube(cancion, i)" 
-                              [disabled]="cancion.reproducida">YouTube</button>
+                      <button class="btn youtube" style="background-color: #d9534f;" 
+                              (click)="verEnYoutube(cancion, i)" 
+                              [disabled]="cancion.isPlayed">YouTube</button>
                     </td>
                   </tr>
                 </tbody>
+                
+                
+                
               </table>
             
               <!-- Paginador -->
@@ -81,7 +85,7 @@
               </div>
             
               <div class="buttons d-flex justify-content-between">
-                <button class="btn btn-primary">Reportes</button>
+                <button class="btn btn-primary"   [routerLink]="['/reportes', barId]">Reportes</button>
                 <button class="btn btn-secondary">Limpiar</button>
               </div>
             </section>

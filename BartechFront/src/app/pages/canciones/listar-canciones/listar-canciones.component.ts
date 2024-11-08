@@ -37,13 +37,13 @@ export class ListarCancionesComponent implements OnInit {
       'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
     });
-
+  
     this.http.get<any[]>(`${environment.CRUD_BARTECH}playlist/V1/${this.barId}`, { headers })
       .subscribe({
         next: (response) => {
           this.canciones = response
             .sort((a, b) => b.id - a.id)
-            .map(cancion => ({ ...cancion, reproducida: false, abierta: false })); // Agregar abierta
+            .map(cancion => ({ ...cancion })); // Agregar abierta
           this.paginarCanciones();
         },
         error: (err) => {
@@ -51,21 +51,46 @@ export class ListarCancionesComponent implements OnInit {
         }
       });
   }
+  
 
   verEnYoutube(cancion: any, index: number): void {
-    
+    const token = localStorage.getItem('token') || '';
+    // Construye la URL de YouTube para buscar la canción
     const query = encodeURIComponent(`${cancion.songName} ${cancion.genre} ${cancion.author}`);
     const youtubeUrl = `https://www.youtube.com/results?search_query=${query}`;
     window.open(youtubeUrl, '_blank');
 
-    cancion.reproducida = true;
-    cancion.abierta = true; // Cambiar el estado para que se aplique la clase
+    // Marcar la canción como reproducida y actualizar su estado visual
+    //cancion.reproducida = true;
+    //cancion.abierta = true;
 
     const fila = this.el.nativeElement.querySelector(`#fila-${index}`);
     if (fila) {
         fila.classList.add('bg-light');
     }
-  }
+
+    // Enviar la solicitud PUT para actualizar el estado de la canción en el servidor
+    const endpointUrl = `http://localhost:8080/playlist/V1/play/${cancion.id}`;
+    const body = {
+        id: cancion.id,
+        isPlayed: "true"
+    };
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
+
+    this.http.put(endpointUrl, body, { headers })
+      .subscribe({
+        next: () => {
+          console.log('Estado de reproducción actualizado en el servidor');
+        },
+        error: (err) => {
+          console.error('Error al actualizar el estado de reproducción:', err);
+        }
+      });
+}
+
 
   paginarCanciones(): void {
     const inicio = (this.paginaActual - 1) * this.cancionesPorPagina;
