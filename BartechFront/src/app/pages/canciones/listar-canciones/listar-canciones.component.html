@@ -68,9 +68,6 @@
                     </td>
                   </tr>
                 </tbody>
-                
-                
-                
               </table>
             
               <!-- Paginador -->
@@ -84,9 +81,11 @@
                         [disabled]="paginaActual === Math.ceil(canciones.length / cancionesPorPagina)">Siguiente</button>
               </div>
             
-              <div class="buttons d-flex justify-content-between">
-                <button class="btn btn-primary"   [routerLink]="['/reportes', barId]">Reportes</button>
+              <div class="buttons d-flex justify-content-space-around mb-3">
+                <button class="btn btn-primary" [routerLink]="['/reportes', barId]">Reportes</button>
+                <button class="btn btn-primary" (click)="limpiarCanciones()">Limpiar</button>
               </div>
+
             </section>
             <br>
             <footer>

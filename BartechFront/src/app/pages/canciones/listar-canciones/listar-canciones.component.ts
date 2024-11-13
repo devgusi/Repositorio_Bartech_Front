@@ -27,11 +27,12 @@ export class ListarCancionesComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.barId = params.get('id') || '';
+      this.limpiarCanciones();
       this.obtenerCanciones();
     });
   }
 
-  obtenerCanciones(): void {
+  obtenerCanciones(): void { 
     const token = localStorage.getItem('token') || '';
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`,
@@ -41,15 +42,23 @@ export class ListarCancionesComponent implements OnInit {
     this.http.get<any[]>(`${environment.CRUD_BARTECH}playlist/V1/${this.barId}`, { headers })
       .subscribe({
         next: (response) => {
+          // Filtramos las canciones donde isPlayed es false
           this.canciones = response
-            .sort((a, b) => b.id - a.id)
-            .map(cancion => ({ ...cancion })); // Agregar abierta
+            .filter(cancion => cancion.isPlayed === false)  // Filtra solo las canciones no reproducidas
+            .sort((a, b) => b.id - a.id)  // Ordena las canciones por ID de mayor a menor
+            .map(cancion => ({ ...cancion }));  // Se hace una copia de las canciones
+  
+          // Llamamos a la función para paginar las canciones después de aplicar el filtro
           this.paginarCanciones();
         },
         error: (err) => {
           console.error('Error al obtener las canciones:', err);
         }
       });
+  }
+  limpiarCanciones(): void {
+    // Filtramos las canciones que no han sido reproducidas
+    this.cancionesPaginadas = this.canciones.filter(c => !c.isPlayed);
   }
   
 
