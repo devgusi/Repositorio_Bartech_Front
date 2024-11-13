@@ -11,6 +11,7 @@ $box-shadow: rgba(0, 0, 0, 0.1);
 }
 
 .registration-bar-form {
+  position: relative;
   max-width: 400px;
   margin: auto;
   padding: 20px;
@@ -28,7 +29,7 @@ $box-shadow: rgba(0, 0, 0, 0.1);
     margin-bottom: 15px;
 
     input {
-      width: 100%;  // Optimizado para evitar el uso de calc
+      width: 100%;
       padding: 10px;
       border: 1px solid $border-color;
       border-radius: 5px;
@@ -48,7 +49,7 @@ $box-shadow: rgba(0, 0, 0, 0.1);
     border: none;
     border-radius: 5px;
     font-size: 16px;
-    transition: background-color 0.3s ease; // Transición suave al hover
+    transition: background-color 0.3s ease;
 
     &:hover {
       background-color: $button-hover-color;
@@ -63,7 +64,7 @@ $box-shadow: rgba(0, 0, 0, 0.1);
     padding: 10px;
 
     .form-group input {
-      padding: 8px;  // Reducir padding en pantallas pequeñas
+      padding: 8px;
     }
 
     button {
@@ -73,6 +74,7 @@ $box-shadow: rgba(0, 0, 0, 0.1);
   }
 }
 
+//AJUSTE DE ESTILOS PARA TODOS LOS COMPONENTES!
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -92,4 +94,32 @@ footer {
   position: fixed;
   width: 100%;
   bottom: 0;
+}
+
+.toolbar-content {
+  flex-direction: column;
+  width: 100%;
+  display: flex;
+  margin-left: auto;
+}
+
+.toolbar-content span, 
+.toolbar-content a {
+  margin: 8px 0;
+}
+
+
+
+.back-arrow {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 20px;
+  color: #000000;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.back-arrow:hover {
+  transform: scale(1.1);
 }

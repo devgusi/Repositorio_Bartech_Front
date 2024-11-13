@@ -1,11 +1,3 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
-}
-
 
 .canciones {
     padding: 20px;
@@ -80,10 +72,6 @@ button {
     }
 }
 
-.buttons {
-    margin-top: 20px;
-}
-
 input {
     margin: 20px 0;
     padding: 10px;
@@ -150,9 +138,6 @@ body {
   .toolbar-content {
     flex-direction: column;
     width: 100%;
-  }
-  
-  .toolbar-content {
     display: flex;
     margin-left: auto;
   }

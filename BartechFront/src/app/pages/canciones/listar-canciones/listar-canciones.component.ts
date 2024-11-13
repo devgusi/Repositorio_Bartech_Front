@@ -70,7 +70,7 @@ export class ListarCancionesComponent implements OnInit {
     }
 
     // Enviar la solicitud PUT para actualizar el estado de la canción en el servidor
-    const endpointUrl = `http://localhost:8080/playlist/V1/play/${cancion.id}`;
+    const endpointUrl = `${environment.CRUD_BARTECH}playlist/V1/play/${cancion.id}`;
     const body = {
         id: cancion.id,
         isPlayed: "true"
@@ -84,6 +84,8 @@ export class ListarCancionesComponent implements OnInit {
       .subscribe({
         next: () => {
           console.log('Estado de reproducción actualizado en el servidor');
+          // Recargar la página para reflejar los cambios
+          window.location.reload();
         },
         error: (err) => {
           console.error('Error al actualizar el estado de reproducción:', err);

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import * as XLSX from 'xlsx'; // Importar la biblioteca xlsx
+import { environment } from 'src/environments/environment';
 
 interface GeneroConteo {
   genero: string;
@@ -48,7 +49,7 @@ export class ReportesComponent implements OnInit {
       'Content-Type': 'application/json'
     });
   
-    this.http.get<any[]>(`http://localhost:8080/playlist/V1/${this.barId}`, { headers })
+    this.http.get<any[]>(`${environment.CRUD_BARTECH}playlist/V1/${this.barId}`, { headers })
       .subscribe(response => {
         const conteoGeneros: { [key: string]: { repeticiones: number, palabras: { [key: string]: number }, canciones: any[] } } = {};
   

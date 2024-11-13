@@ -47,6 +47,7 @@ export class ModificarBarComponent implements OnInit {
     this.http.get<any[]>(`${environment.CRUD_BARTECH}pub/V1/${this.barId}`, { headers })
       .subscribe({
         next: (response) => {
+          debugger;
           if (response.length > 0) {
             const barData = response[0];
             this.nombreEstablecimiento = barData.name;

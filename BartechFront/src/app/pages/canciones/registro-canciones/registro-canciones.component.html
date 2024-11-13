@@ -1,22 +1,29 @@
-<!DOCTYPE html>
-<html lang="es">
   <header>
     <app-header></app-header>
   </header>
-
+  <!DOCTYPE html>
+  <html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Registrar Cancion</title>
+    <img src="../../../assets/resources/bartech_logo_reducido_transp.png" alt="Logo" class="bartech-logo">
+  
+  </head>
   <body>
+  
+    <div class="main-content">
     <br>
     <br>
-
+  
     <div class="registration-cancion-form">
-      <div class="back-arrow" title="Volver" class="btn btn-danger" (click)="navegarAtras()">
+      <div class="back-arrow" title="Volver" class="btn btn-danger" style="background-color: #d9534f;" (click)="navegarAtras()" (keydown)="navegarAtras()">
         <!-- Usa una flecha o un icono, por ejemplo, de FontAwesome -->
         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5"/> 
         </svg>
         Atras
       </div>
-      <h1>Registro</h1>
+      <h1>Registrar</h1>
       <form [formGroup]="cancionForm" (ngSubmit)="onSubmit()">
         <fieldset>
           <legend class="title-center">Solicitud de canción</legend>
@@ -49,11 +56,12 @@
       
           <button type="submit" [disabled]="!cancionForm.valid">Solicitar</button>
         </fieldset>
-      </form>      
+      </form>
     </div>
+  </div>
   </body>
-
-<footer>
-  <app-footer></app-footer>
-</footer>
-</html>
+  <footer>
+    <app-footer></app-footer>
+  </footer>
+  </html>
+  
