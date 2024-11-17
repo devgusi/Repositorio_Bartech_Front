@@ -1,14 +1,27 @@
-<header>
-  <app-header></app-header>
-</header>
-
 <!DOCTYPE html>
 <html lang="es">
-<body>
-    <!--<header class="bg-light text-center py-4">
-        <h1>BarTech</h1>
-    </header>-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Aplicación</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+    <style>
+        body {
+            overflow-y: auto; /* Permite el desplazamiento vertical */
+            height: 100vh; /* Establece la altura del viewport */
+        }
+        .canciones {
+            padding-bottom: 50px; /* Espacio para que no se corte el footer */
+        }
+    </style>
+</head>
+
+<body>
+  <header>
+    <app-header></app-header>
+  </header>
     <section class="flex min-h-screen flex-col md:flex-row items-center justify-center canciones container my-4">
         <h2 class="text-center mb-4">Tus Establecimientos</h2>
         <div class="text-center text-sm text-muted-foreground">
@@ -18,27 +31,39 @@
           </div>
         <br>
         <table class="table table-bordered">
-            <thead class="thead-light">
-              <tr>
-                <th>ID</th>
-                <th>Nombre del establecimiento</th>
-                <th>Dirección del establecimiento</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let bar of bares"> <!-- Recorremos la lista de bares -->
-                <td>{{ bar.id }}</td>
-                <td>{{ bar.name }}</td>
-                <td>{{ bar.address }}</td>
-                <td>
-                  <button class="btn btn-warning" [routerLink]="['/listarCanciones', bar.id]">Ir al establecimiento</button>
-                  &nbsp;
-                  <button class="btn btn-secondary" [routerLink]="['/editarBar', bar.id]">Editar</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>      
+          <thead class="thead-light">
+            <tr>
+              <th>ID</th>
+              <th>Nombre del establecimiento</th>
+              <th>Dirección del establecimiento</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let bar of bares">
+              <td>{{ bar.id }}</td>
+              <td>{{ bar.name }}</td>
+              <td>{{ bar.address }}</td>
+              <td>
+                <button class="btn btn-success" [routerLink]="['/listarCanciones', bar.id]">
+                  <i class="fas fa-store"></i> 
+                </button>
+                &nbsp;
+                <button class="btn btn-warning" [routerLink]="['/editarBar', bar.id]">
+                  <i class="fas fa-edit"></i> 
+                </button>
+                &nbsp;
+                <button class="btn btn-danger" style="background-color: #d9534f;" (click)="eliminarBar(bar.id)">
+                  <i class="fas fa-trash-alt"></i> 
+                </button>
+                <button class="btn btn-success" [routerLink]="['/listarCanciones', bar.id]" matTooltip="Ir al establecimiento">
+                  <i class="fas fa-store"></i> Ir al establecimiento
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
     </section>
 
 </body>

@@ -23,6 +23,8 @@ import { AuthGuard } from './auth/auth.guard'; // Importar el guardia
 
 // Importar NgxQrcodeModule
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const appRoutes: Routes = [
   //login
@@ -64,7 +66,8 @@ const appRoutes: Routes = [
     NgxQRCodeModule, // Agregar el módulo de QR
     ReactiveFormsModule, // Para formularios reactivos
     FormsModule, // <-- asegúrate de tener este import
-    HttpClientModule // Para hacer las solicitudes HTTP
+    HttpClientModule, BrowserAnimationsModule, // Para hacer las solicitudes HTTP
+    MatTooltipModule
   ],
   providers: [AuthGuard], // Añadir el guardia de autenticación aquí
   bootstrap: [AppComponent],
