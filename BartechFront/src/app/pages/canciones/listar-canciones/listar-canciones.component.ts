@@ -116,10 +116,10 @@ export class ListarCancionesComponent implements OnInit {
     }
     this.paginarCanciones();
   }
-
+  
   generarQRCode(): void {
     const canvas = document.getElementById('qrcode') as HTMLCanvasElement;
-    const qrData = `https://k24fpfim43xwqjftf4fza477vu.apigateway.us-ashburn-1.oci.customer-oci.com/registrarCancion/${this.barId}`;
+    const qrData = `http://localhost:4200/registrarCancion/${this.barId}`;
     QRCode.toCanvas(canvas, qrData, error => {
       if (error) console.error(error);
       else console.log('Código QR generado correctamente');
